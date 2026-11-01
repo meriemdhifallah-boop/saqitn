@@ -8,7 +8,7 @@ import requests
 import pandas as pd
 import streamlit as st
 
-st.set_page_config(page_title="SaqiTN - سقي", page_icon="💧", layout="centered")
+st.set_page_config(page_title="SaqiTN", page_icon="💧", layout="centered")
 
 # ------------------------------------------------------------------ DONNÉES
 # (fr, ar, lat, lon)
@@ -141,9 +141,21 @@ def nm(names):
 st.markdown(
     """<style>
     html, body, [class*="css"] { font-size: 18px; }
+    #MainMenu, footer, header { visibility: hidden; }
+    .stApp { background: linear-gradient(180deg, #d4eefa 0%, #b9e3f3 40%, #e6f6f3 100%); }
+    .block-container { background: rgba(255,255,255,0.80); border-radius: 24px;
+        padding: 1.2rem 1.1rem 3rem; margin-top: 0.8rem;
+        box-shadow: 0 8px 30px rgba(0,90,140,0.18); }
+    .stApp, .stMarkdown, label, p, li, span { color: #12343f; }
+    h2, h3 { color: #0b5d82 !important; }
     label, .stSelectbox label, .stRadio label { font-size: 1.1rem !important; font-weight: 600; }
-    div[data-baseweb="select"] > div { min-height: 52px; }
-    h1 { text-align: center; }
+    div[data-baseweb="select"] > div { min-height: 52px; border-radius: 14px; }
+    [data-testid="stMetric"] { background: #eaf7fc; border-radius: 16px; padding: 10px 14px; }
+    [data-testid="stAlert"] { border-radius: 16px; }
+    .hero { background: linear-gradient(135deg, #0b78a8 0%, #1fa7bf 60%, #3cc6c0 100%);
+        border-radius: 22px; padding: 22px 14px 18px; text-align: center; margin-bottom: 14px; }
+    .hero .t { color: #ffffff !important; font-size: 2.3rem; font-weight: 800; letter-spacing: 1px; }
+    .hero .s { color: #e6fbff !important; font-size: 1.05rem; margin-top: 6px; }
     </style>""",
     unsafe_allow_html=True,
 )
@@ -154,8 +166,10 @@ if L != "fr":
         unsafe_allow_html=True,
     )
 
-st.title(t("title"))
-st.markdown(f"<p style='text-align:center'>{t('sub')}</p>", unsafe_allow_html=True)
+st.markdown(
+    f"<div class='hero'><div class='t'>💧 SaqiTN · سقي</div><div class='s'>{t('sub')}</div></div>",
+    unsafe_allow_html=True,
+)
 
 
 # ------------------------------------------------------------------ MÉTÉO
